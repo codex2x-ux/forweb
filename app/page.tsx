@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <main className="pt-20">
       {/* Hero */}
-<section className="py-36 px-6 relative overflow-hidden">
+<section className="py-24 md:py-36 px-6" relative overflow-hidden">
   {/* Background */}
   <div className="absolute inset-0 -z-0">
     <div className="w-full h-full bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950" />
