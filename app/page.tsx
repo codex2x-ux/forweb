@@ -11,21 +11,21 @@ export default function HomePage() {
   return (
     <main className="pt-20">
       {/* Hero */}
-<section className="py-24 md:py-36 px-6" relative overflow-hidden">
+<section className="relative overflow-hidden py-24 md:py-36 px-6">
   {/* Background */}
-  <div className="absolute inset-0 -z-0">
+  <div className="absolute inset-0 z-0">
     <div className="w-full h-full bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950" />
     <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
   </div>
 
   {/* Content */}
-  <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+  <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
     >
-      <h1 className="text-5xl font-semibold leading-tight mb-6 text-white">
+      <h1 className="text-3xl md:text-5xl font-semibold leading-tight mb-6 text-white">
         Enterprise-Grade IT Infrastructure
         <br />
         <span className="text-neutral-400">
@@ -55,7 +55,7 @@ export default function HomePage() {
     >
       <img
         src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
-        className="rounded-2xl shadow-2xl border border-neutral-800"
+        className="rounded-2xl shadow-2xl border border-neutral-800 w-full max-w-md mx-auto md:max-w-none"
         alt="Infrastructure"
       />
     </motion.div>
