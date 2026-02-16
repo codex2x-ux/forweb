@@ -7,9 +7,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2 
-w-[90%] max-w-5xl rounded-xl 
-bg-white/70 backdrop-blur-md shadow-lg z-50">
+    <nav className="w-full bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="text-xl md:text-2xl font-semibold tracking-wide">
           <span className="text-white">VRM</span>
