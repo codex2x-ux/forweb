@@ -17,12 +17,15 @@ import { useState } from "react";
 
     {/* Mobile Hamburger */}
     <button
-      onClick={() => setIsOpen(!isOpen)}
-      className="md:hidden text-white text-2xl"
-    >
-      ☰
-    </button>
-  </div>
+  onClick={() => {
+    alert("clicked");
+    setIsOpen(!isOpen);
+  }}
+  className="md:hidden text-white text-2xl"
+>
+  ☰
+</button>
+
 
   {/* Mobile Dropdown */}
   {isOpen && (
