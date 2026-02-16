@@ -20,9 +20,9 @@ export default function RootLayout({
         <nav className="w-full border-b border-neutral-800">
   <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
 
-    <h1 className="text-xl md:text-2xl font-semibold text-white">
-      VRM IT
-    </h1>
+    <h2 className="text-3xl md:text-5xl font-semibold text-white">
+  VRM IT Services
+</h2>
 
     <div className="hidden md:flex gap-10 text-neutral-300">
       <a href="/">Home</a>
