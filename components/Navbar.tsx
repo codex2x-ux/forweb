@@ -12,8 +12,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="text-xl md:text-2xl font-semibold tracking-wide">
-          <span className="text-white">VRM</span>
-          <span className="text-neutral-400 ml-1">IT</span>
+          <h2 class="text-3xl md:text-5xl font-semibold text-white">VRM IT Services</h2>
         </Link>
 
         {/* Desktop Menu */}
