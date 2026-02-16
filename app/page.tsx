@@ -1,65 +1,146 @@
-import Image from "next/image";
+"use client";
+import Link from "next/link";
+import TestimonialSlider from "@/components/TestimonialSlider";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Laptop, ShieldCheck, Network } from "lucide-react";
+import CTASection from "@/components/CTASection";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main>
+      {/* Hero */}
+<section className="py-36 px-6 relative overflow-hidden">
+  {/* Background */}
+  <div className="absolute inset-0 -z-10">
+    <div className="w-full h-full bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950" />
+    <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
+  </div>
+
+  {/* Content */}
+  <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+    >
+      <h1 className="text-5xl font-semibold leading-tight mb-6 text-white">
+        Enterprise-Grade IT Infrastructure
+        <br />
+        <span className="text-neutral-400">
+          Designed for Stability & Scale
+        </span>
+      </h1>
+
+      <p className="text-neutral-400 mb-10 max-w-lg">
+        We design, secure and manage critical IT environments
+        for businesses that require reliability, compliance and growth readiness.
+      </p>
+
+      <div className="flex gap-4">
+        <Link href="/contact">
+          <Button className="rounded-xl px-8 py-6 text-base">
+            Schedule Consultation
+          </Button>
+        </Link>
+      </div>
+    </motion.div>
+
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.7, delay: 0.2 }}
+      className="relative"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
+        className="rounded-2xl shadow-2xl border border-neutral-800"
+        alt="Infrastructure"
+      />
+    </motion.div>
+  </div>
+</section>
+
+    
+      {/*Animated stats section */}  
+      <section className="py-24 border-t border-neutral-800">
+  <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 text-center">
+    {[
+      { label: "Clients Served", value: 250 },
+      { label: "Projects Delivered", value: 480 },
+      { label: "Systems Monitored", value: 1200 },
+      { label: "Uptime Guarantee", value: 99.9 },
+    ].map((stat, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h3 className="text-4xl font-semibold mb-2">
+          {stat.value}
+          {stat.label === "Uptime Guarantee" ? "%" : "+"}
+        </h3>
+        <p className="text-neutral-400 text-sm">
+          {stat.label}
+        </p>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
+      {/* Services Preview */}
+      <section className="py-20 bg-gray-50 px-6">
+        <h2 className="text-3xl font-semibold text-center mb-12">
+          Our Core Services
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <Card className="rounded-xl shadow-sm hover:shadow-md transition">
+            <CardContent className="p-6 text-center">
+              <Laptop className="mx-auto mb-4" size={36} />
+              <h3 className="font-semibold mb-2">Computer Repair</h3>
+              <p className="text-gray-600 text-sm">
+                Hardware and software troubleshooting for desktops & laptops.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="rounded-xl shadow-sm hover:shadow-md transition">
+            <CardContent className="p-6 text-center">
+              <Network className="mx-auto mb-4" size={36} />
+              <h3 className="font-semibold mb-2">Networking</h3>
+              <p className="text-gray-600 text-sm">
+                Office network setup, WiFi solutions and infrastructure support.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="rounded-xl shadow-sm hover:shadow-md transition">
+            <CardContent className="p-6 text-center">
+              <ShieldCheck className="mx-auto mb-4" size={36} />
+              <h3 className="font-semibold mb-2">Security & CCTV</h3>
+              <p className="text-gray-600 text-sm">
+                Firewall configuration, CCTV installation & monitoring systems.
+              </p>
+            </CardContent>
+          </Card>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="text-center mt-12">
+          <Link href="/services">
+            <Button variant="outline" className="rounded-xl">
+              View All Services
+            </Button>
+          </Link>
         </div>
-      </main>
-    </div>
+      </section>
+      {/* Testimonials */}
+      <TestimonialSlider />
+      <CTASection />
+    </main>
   );
 }
+
