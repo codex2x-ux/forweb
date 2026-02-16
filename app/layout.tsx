@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-neutral-950 text-neutral-100 selection:bg-neutral-700 selection:text-white">
-        
+        <Navbar />
 
 
       <WhatsAppButton />
