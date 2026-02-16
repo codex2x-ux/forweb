@@ -9,13 +9,10 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-neutral-950/90 backdrop-blur border-b border-neutral-800">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="flex flex-col leading-tight">
- <span className="text-white">VRM</span>
- <span className="text-blue-500 ml-1">IT</span>
-
-    TECHNOLOGY SOLUTIONS
-  </span>
-</div>
+        <Link href="/" className="text-xl md:text-2xl font-semibold tracking-wide">
+          <span className="text-white">VRM</span>
+          <span className="text-neutral-400 ml-1">IT</span>
+        </Link>
 
 
         {/* Desktop Menu */}
