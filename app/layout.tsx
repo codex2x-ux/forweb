@@ -17,11 +17,16 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-neutral-950 text-neutral-100 selection:bg-neutral-700 selection:text-white">
         <Navbar />
-        <WhatsAppButton />
-        {children}
-        <footer className="border-t mt-20 py-8 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} VRM IT Services | New Delhi
-        </footer>
+
+<main className="pt-16">
+  <WhatsAppButton />
+  {children}
+</main>
+
+<footer className="border-t mt-20 py-8 text-center text-sm text-gray-500">
+  © {new Date().getFullYear()} VRM IT Services | New Delhi
+</footer>
+
       </body>
     </html>
   );
