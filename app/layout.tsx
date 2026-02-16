@@ -17,19 +17,28 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-neutral-950 text-neutral-100 selection:bg-neutral-700 selection:text-white">
-        <nav className="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/80 backdrop-blur-xl">
-  <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div className="text-xl font-semibold tracking-wide">
-      VRM IT Services
+        <nav className="w-full border-b border-neutral-800">
+  <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+    <h1 className="text-xl md:text-2xl font-semibold text-white">
+      VRM IT
+    </h1>
+
+    <div className="hidden md:flex gap-10 text-neutral-300">
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/contact">Contact</a>
     </div>
-    <div className="flex gap-8 text-sm text-neutral-300">
-      <Link href="/">Home</Link>
-      <Link href="/services">Services</Link>
-      <Link href="/pricing">Pricing</Link>
-      <Link href="/contact">Contact</Link>
-    </div>
+
+    {/* Mobile Hamburger */}
+    <button className="md:hidden text-white">
+      ☰
+    </button>
+
   </div>
 </nav>
+
       <WhatsAppButton />
 
     
