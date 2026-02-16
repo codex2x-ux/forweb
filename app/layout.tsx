@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -18,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-neutral-950 text-neutral-100 selection:bg-neutral-700 selection:text-white">
         <nav className="w-full border-b border-neutral-800">
+        const [isOpen, setIsOpen] = useState(false);
   <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
 
     <h2 className="text-3xl md:text-5xl font-semibold text-white">
