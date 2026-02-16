@@ -13,7 +13,7 @@ export default function HomePage() {
       {/* Hero */}
 <section className="py-36 px-6 relative overflow-hidden">
   {/* Background */}
-  <div className="absolute inset-0 -z-10">
+  <div className="absolute inset-0 -z-0">
     <div className="w-full h-full bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950" />
     <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
   </div>
