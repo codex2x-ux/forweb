@@ -9,7 +9,7 @@ import CTASection from "@/components/CTASection";
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="pt-20">
       {/* Hero */}
 <section className="py-36 px-6 relative overflow-hidden">
   {/* Background */}
