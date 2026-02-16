@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 <nav className="w-full border-b border-neutral-800 bg-black">
   <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
 
