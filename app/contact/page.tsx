@@ -1,148 +1,178 @@
-    "use client";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { db } from "@/lib/firebase";
-import { collection, addDoc } from "firebase/firestore";
+"use client";
+
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-
-  try {
-    await addDoc(collection(db, "contacts"), {
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      message: formData.message,
-      createdAt: new Date()
-    });
-
-    alert("Message sent successfully!");
-    setFormData({
-  name: "",
-  email: "",
-  phone: "",
-  message: "",
-});
-
-  } catch (error) {
-    console.error("Error adding document: ", error);
-  }
-};
-
   return (
-    <section className="py-28 bg-neutral-950 px-6">
-  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
+    <main className="pt-20 bg-neutral-950 text-neutral-100">
 
-    {/* LEFT SIDE */}
-    <div>
-      <h2 className="text-4xl font-semibold mb-6 text-white">
-        Let’s Discuss Your Project
-      </h2>
+      {/* ================= HERO ================= */}
+      <section className="relative py-28 px-6 text-center overflow-hidden">
 
-      <p className="text-neutral-400 mb-10">
-        Tell us about your infrastructure requirements and
-        we’ll provide a tailored solution.
-      </p>
+        {/* Background glow */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/5 to-transparent blur-3xl" />
 
-      <div className="space-y-4 text-neutral-400">
-        <p>Email: Kumar@vrmservices.in</p>
-        <p>Phone: +91 9354021887</p>
-        <p>Response Time: Within 24 Hours</p>
-      </div>
-    </div>
+        <div className="relative max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-semibold mb-6 leading-tight">
+            Let’s Build Your <span className="text-blue-500">IT Solution</span>
+          </h1>
 
-    {/* RIGHT SIDE */}
-    <div className="bg-neutral-900 p-10 rounded-3xl border border-neutral-800">
-      <form onSubmit={handleSubmit} className="space-y-6">
+          <p className="text-neutral-400 text-lg">
+            Whether you need computer repair, networking setup or security solutions —
+            we’re here to help.
+          </p>
+        </div>
+      </section>
 
-  <input
-    type="text"
-    placeholder="Full Name"
-    value={formData.name}
-    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-    className="w-full bg-neutral-800 border border-neutral-700 rounded-xl p-4 text-white"
-    required
-  />
 
-  <input
-    type="email"
-    placeholder="Email Address"
-    value={formData.email}
-    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-    className="w-full bg-neutral-800 border border-neutral-700 rounded-xl p-4 text-white"
-    required
-  />
+      {/* ================= CONTACT SECTION ================= */}
+      <section className="px-6 pb-28">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
 
-  <input
-    type="text"
-    placeholder="Phone Number"
-    value={formData.phone}
-    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-    className="w-full bg-neutral-800 border border-neutral-700 rounded-xl p-4 text-white"
-  />
+          {/* ===== LEFT: FORM ===== */}
+          <div className="bg-white/5 backdrop-blur-lg border border-white/10 
+                          rounded-3xl p-10 shadow-xl">
 
-  <textarea
-    placeholder="Project Details"
-    rows={4}
-    value={formData.message}
-    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-    className="w-full bg-neutral-800 border border-neutral-700 rounded-xl p-4 text-white"
-    required
-  />
+            <h2 className="text-2xl font-semibold mb-8">
+              Send Us a Message
+            </h2>
 
-  <Button type="submit" className="w-full rounded-xl py-6">
-    Submit Request
-  </Button>
+            <form className="space-y-6">
 
-</form>
-          <section className="py-20 px-6">
-  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+              <div>
+                <label className="block text-sm mb-2 text-neutral-400">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  className="w-full bg-neutral-900/80 border border-neutral-800 
+                             rounded-xl px-4 py-3 focus:outline-none 
+                             focus:border-blue-500 focus:ring-1 
+                             focus:ring-blue-500 transition"
+                  placeholder="Enter your name"
+                />
+              </div>
 
-    {/* Contact Form */}
-    <div>
-      {/* your existing form */}
-    </div>
+              <div>
+                <label className="block text-sm mb-2 text-neutral-400">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  className="w-full bg-neutral-900/80 border border-neutral-800 
+                             rounded-xl px-4 py-3 focus:outline-none 
+                             focus:border-blue-500 focus:ring-1 
+                             focus:ring-blue-500 transition"
+                  placeholder="Enter your email"
+                />
+              </div>
 
-    {/* Map */}
-      <h3 className="text-xl font-semibold mb-4">
-  Visit Our Office
-</h3>
-<p className="text-neutral-400 mb-6">
-  New Delhi, India
-</p>
-      
-    <div className="rounded-2xl overflow-hidden border border-neutral-800">
-      <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.438218451828!2d77.12865957466562!3d28.646594675657077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03ca7ced4493%3A0xbbac0a68f364ed82!2sVRM%20SERVICES!5e0!3m2!1sen!2sin!4v1771186376002!5m2!1sen!2sin"
-      width="100%"
-      height="350"
-      style={{ border: 0 }}
-      allowFullScreen"
-      className="w-full h-[400px] grayscale hover:grayscale-0 transition duration-500
-      loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-      ></iframe>
-    </div>
+              <div>
+                <label className="block text-sm mb-2 text-neutral-400">
+                  Message
+                </label>
+                <textarea
+                  rows={4}
+                  className="w-full bg-neutral-900/80 border border-neutral-800 
+                             rounded-xl px-4 py-3 focus:outline-none 
+                             focus:border-blue-500 focus:ring-1 
+                             focus:ring-blue-500 transition"
+                  placeholder="Describe your requirements..."
+                ></textarea>
+              </div>
 
-  </div>
-</section>
-    
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 
+                           hover:opacity-90 transition rounded-xl py-3 font-medium"
+              >
+                Send Message →
+              </button>
 
-    </div>
+            </form>
+          </div>
 
-  </div>
-</section>
 
+          {/* ===== RIGHT: INFO + MAP ===== */}
+          <div className="space-y-10">
+
+            {/* Contact Info */}
+            <div className="bg-white/5 backdrop-blur-lg border border-white/10 
+                            rounded-3xl p-10 shadow-xl space-y-6">
+
+              <h2 className="text-2xl font-semibold mb-6">
+                Contact Information
+              </h2>
+
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-xl bg-blue-500/10">
+                  <Phone className="text-blue-500" size={18} />
+                </div>
+                <p className="text-neutral-300 text-sm">
+                  +91 9354021887
+                </p>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-xl bg-purple-500/10">
+                  <Mail className="text-purple-500" size={18} />
+                </div>
+                <p className="text-neutral-300 text-sm">
+                  Kumar@vrmservices.in
+                </p>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-xl bg-emerald-500/10">
+                  <MapPin className="text-emerald-500" size={18} />
+                </div>
+                <p className="text-neutral-300 text-sm">
+                  New Delhi, India
+                </p>
+              </div>
+            </div>
+
+
+            {/* Map */}
+            <div className="rounded-3xl overflow-hidden border border-white/10 shadow-xl">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.438218451828!2d77.12865957466562!3d28.646594675657077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03ca7ced4493%3A0xbbac0a68f364ed82!2sVRM%20SERVICES!5e0!3m2!1sen!2sin!4v1771186376002!5m2!1sen!2sin"
+                width="100%"
+                height="350"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-[350px] grayscale hover:grayscale-0 transition duration-700"
+              ></iframe>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      {/* ================= CTA ================= */}
+      <section className="py-24 px-6 text-center border-t border-neutral-800">
+
+        <h2 className="text-3xl font-semibold mb-4">
+          Need Immediate Support?
+        </h2>
+
+        <p className="text-neutral-400 mb-8">
+          Call us directly and we’ll assist you right away.
+        </p>
+
+        <a
+          href="tel:+919354021887"
+          className="inline-block bg-gradient-to-r from-blue-600 to-purple-600
+                     hover:opacity-90 transition px-10 py-4 rounded-full font-medium"
+        >
+          Call Now →
+        </a>
+      </section>
+
+    </main>
   );
 }
 
